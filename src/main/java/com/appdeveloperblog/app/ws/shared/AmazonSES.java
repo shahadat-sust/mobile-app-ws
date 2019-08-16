@@ -1,5 +1,6 @@
 package com.appdeveloperblog.app.ws.shared;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.amazonaws.regions.Regions;
@@ -13,6 +14,7 @@ import com.amazonaws.services.simpleemail.model.SendEmailRequest;
 import com.amazonaws.services.simpleemail.model.SendEmailResult;
 import com.appdeveloperblog.app.ws.shared.dto.UserDto;
 
+@Component
 public class AmazonSES {
 
 	private final String FROM = "shahadat.sust@gmail.com";
