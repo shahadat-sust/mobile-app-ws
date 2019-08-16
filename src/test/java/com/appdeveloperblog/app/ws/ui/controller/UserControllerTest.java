@@ -13,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.appdeveloperblog.app.ws.exception.UserServiceException;
 import com.appdeveloperblog.app.ws.service.impl.UserServiceImpl;
 import com.appdeveloperblog.app.ws.shared.dto.AddressDto;
 import com.appdeveloperblog.app.ws.shared.dto.UserDto;
