@@ -1,0 +1,269 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SPRING TUTORIAL",
+		"_postman_id": "77b0edfd-92e9-d2a9-587c-d2351674d65a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE USER",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"Shahadat\",\n\t\"lastName\" : \"Hossain\",\n\t\"email\" : \"shahadat_sust@yahoo.com\",\n\t\"password\": \"123\",\n\t\"addresses\": [\n\t\t{\n\t\t\t\"streetName\": \"R-8\",\n\t\t\t\"city\": \"Dhaka\",\n\t\t\t\"country\": \"Bangladesh\",\n\t\t\t\"postalCode\": \"10101\",\n\t\t\t\"type\": \"billing\"\n\t\t},\n\t\t{\n\t\t\t\"streetName\": \"R-5\",\n\t\t\t\"city\": \"Comilla\",\n\t\t\t\"country\": \"Bangladesh\",\n\t\t\t\"postalCode\": \"10101\",\n\t\t\t\"type\": \"shipping\"\n\t\t}\n\t]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SIGNIN",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\" : \"shahadat_sust@yahoo.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "USER UPDATE",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/p4pSJiJsfmPB6mLgbRc5m01jpmcVcz",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjMzMDI3MzYsInN1YiI6IlNoYWhhZGF0QGdtYWlsLmNvbSJ9.r4WNyvvK5lisPT52kEiVxY4mKf0ZfX1vbU2OSwIJ-bSLPc17UHvWeIqW8jym9DhRnNliedRJX2lCjjnKgWLGog",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"Shahadat1\",\n\t\"lastName\" : \"Hossain1\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/yiGRwTEOncDiWdEY571XaR1WmrDSL6",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjQ2NzI1NTQsInN1YiI6IlNoYWhhZGF0QGdtYWlsLmNvbSJ9.mFWgQSNDYLTFFRehoaK8RfCkQLcpiy6k2jnFrRyZkoZ0Xu-RPlJEB2kTqNAgC3YFXQZX1nB3i56341zHhSyJ6w",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE USER",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/3JEfqgeUfFBmLtL5uz7SU7XZz91NQu",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjMzMDI1NjYsInN1YiI6IlNoYWhhZGF0QGdtYWlsLmNvbSJ9.MW7JI3S0_m7g0o2BXFraFU6JbM0DMvl0xeylybB5d33vlRQ2BFfrkSyA0jl4TQIhmaCX2CfG6nwVZ_eRB8OVNg",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER BY PAGINATION",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/mobile-app-ws/users?page=0&limit=50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mobile-app-ws",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "limit",
+							"value": "50",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjQ2NzI1NTQsInN1YiI6IlNoYWhhZGF0QGdtYWlsLmNvbSJ9.mFWgQSNDYLTFFRehoaK8RfCkQLcpiy6k2jnFrRyZkoZ0Xu-RPlJEB2kTqNAgC3YFXQZX1nB3i56341zHhSyJ6w",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER ADDRESSES",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/yiGRwTEOncDiWdEY571XaR1WmrDSL6/addresses",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjQ2NzI1NTQsInN1YiI6IlNoYWhhZGF0QGdtYWlsLmNvbSJ9.mFWgQSNDYLTFFRehoaK8RfCkQLcpiy6k2jnFrRyZkoZ0Xu-RPlJEB2kTqNAgC3YFXQZX1nB3i56341zHhSyJ6w",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/hal+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER SINGLE ADDRESS",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/yiGRwTEOncDiWdEY571XaR1WmrDSL6/addresses/ybBFhGV3nDBir2QnYl4bedzBjsjoud",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjQ2NzI1NTQsInN1YiI6IlNoYWhhZGF0QGdtYWlsLmNvbSJ9.mFWgQSNDYLTFFRehoaK8RfCkQLcpiy6k2jnFrRyZkoZ0Xu-RPlJEB2kTqNAgC3YFXQZX1nB3i56341zHhSyJ6w",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/hal+json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "USER EMAIL VERIFICATION",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/mobile-app-ws/users/email-verification?token=eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjU1NDc1ODEsInN1YiI6Ilk5NzFsNGV0UktoRDBlWHpZR1oyYmRzeVZ3cFd5NiJ9.AamqiPS9IrjDPMSTQjffROXv0ImTsjYWbP5zW-tgcr0mcEG47xWIUXMivalUnSxcrbbyFodEb2zZZKAOL2Enbg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mobile-app-ws",
+						"users",
+						"email-verification"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjU1NDc1ODEsInN1YiI6Ilk5NzFsNGV0UktoRDBlWHpZR1oyYmRzeVZ3cFd5NiJ9.AamqiPS9IrjDPMSTQjffROXv0ImTsjYWbP5zW-tgcr0mcEG47xWIUXMivalUnSxcrbbyFodEb2zZZKAOL2Enbg",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PASSWORD RESER REQUEST",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/password-reset-request",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\" : \"shahadat_sust@yahoo.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PASSWORD RESET",
+			"request": {
+				"url": "http://localhost:8080/mobile-app-ws/users/password-reset",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\" : \"eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjUyOTM3MTgsInN1YiI6InRkNjZrYmt1dTFEaU9BOXhjVHY2enVvT2c3RVp3OSJ9.DMRGrkyoggwc4lH8f_zyA0UHVEdm1bt_jhrNdVSGClqyOWyt13EWp6sVBErHMJXaqw_o7xvtlQGoq0rKKF8HbQ\",\n\t\"password\" : \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
