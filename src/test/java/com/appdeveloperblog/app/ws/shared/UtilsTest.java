@@ -37,7 +37,6 @@ class UtilsTest {
 	}
 	
 	@Test
-	@Disabled
 	void testHasTokenExpired() {
 		String token = "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1NjUxMTg5OTQsInN1YiI6ImU3dXdrbGFlbnhpOGRzIn0._DZ_i43YK0INj7RW92Sdvnjoj6y9R6m6eW69trmjVKSODU0OEjo46-WTQTwdZy9XRflWiiqiZCfcIehi0WuoHw";
 		assertNotNull(token);
