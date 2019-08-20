@@ -6,7 +6,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -38,7 +37,7 @@ public class UserEntity {
 	private String emailVerificationToken;
 	
 	@Column(nullable = false, columnDefinition = "boolean default false")
-	private Boolean emailVerficationStatus = false;
+	private Boolean emailVerificationStatus = false;
 	
 	@OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
 	private List<AddressEntity> addresses;
@@ -99,12 +98,12 @@ public class UserEntity {
 		this.emailVerificationToken = emailVerificationToken;
 	}
 
-	public Boolean getEmailVerficationStatus() {
-		return emailVerficationStatus;
+	public Boolean getEmailVerificationStatus() {
+		return emailVerificationStatus;
 	}
 
-	public void setEmailVerficationStatus(Boolean emailVerficationStatus) {
-		this.emailVerficationStatus = emailVerficationStatus;
+	public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
+		this.emailVerificationStatus = emailVerificationStatus;
 	}
 
 	public List<AddressEntity> getAddresses() {

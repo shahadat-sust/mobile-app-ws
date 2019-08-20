@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
 			throw new UserServiceException(ErrorMessages.NO_RECORD_FOUND.getMessage());
 		}
 		
-		return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), userEntity.getEmailVerficationStatus(),
+		return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), userEntity.getEmailVerificationStatus(),
 				true, true, true, new ArrayList<>());
 		//return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), new ArrayList<>());
 	}
@@ -154,7 +154,7 @@ public class UserServiceImpl implements UserService {
 		
 		if (!utils.hasTokenExpired(token)) {
 			userEntity.setEmailVerificationToken(null);
-			userEntity.setEmailVerficationStatus(Boolean.TRUE);
+			userEntity.setEmailVerificationStatus(Boolean.TRUE);
 			userRepository.save(userEntity);
 			return true;
 		} 
