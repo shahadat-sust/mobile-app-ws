@@ -37,7 +37,7 @@ class UserRepositoryTest {
 
 	@Test
 	void testGetVerifiedUser() {
-		Pageable pageable = PageRequest.of(1, 1);
+		Pageable pageable = PageRequest.of(0, 1);
 		Page<UserEntity> pages = userRepository.findAllUsersWithConfirmedEmailAddress(pageable);
 		assertNotNull(pages);
 		
@@ -102,10 +102,49 @@ class UserRepositoryTest {
 	
 	@Test
 	void testUpdateUserEmailVerificationStatus() {
+		String userId = "fwer03ecuwewvy";
 		boolean emailVerificationStatus = true;
-		userRepository.updateUserEmailVerificationStatus("fwer03ecuwewvy", true);
 		
-		UserEntity userEntity = userRepository.getUserByUserId("fwer03ecuwewvy");
+		userRepository.updateUserEmailVerificationStatus(userId, true);
+		
+		UserEntity userEntity = userRepository.getUserByUserId(userId);
+		assertNotNull(userEntity);
+		assertTrue(emailVerificationStatus == userEntity.getEmailVerificationStatus());
+	}
+	
+	@Test
+	void testFindUserEntityByUserId() {
+		String userId = "fwer03ecuwewvy";
+		UserEntity userEntity = userRepository.findUserEntityByUserId(userId);
+		assertNotNull(userEntity);
+		assertEquals(userId, userEntity.getUserId());
+	}
+	
+	@Test
+	void testGetUserEntityFullNameByUserId() {
+		String userId = "fwer03ecuwewvy";
+		List<Object[]> columnsList = userRepository.getUserEntityFullNameByUserId(userId);
+		assertNotNull(columnsList);
+		assertEquals(1, columnsList.size());
+		
+		for (Object[] columns : columnsList) {
+			String firstName = String.valueOf(columns[0]);
+			String lastName = String.valueOf(columns[1]);
+			System.out.println("firstName : " + firstName);
+			System.out.println("lastName : " + lastName);
+			assertNotNull(firstName);
+			assertNotNull(lastName);
+		}
+	}
+	
+	@Test
+	void testUpdateUserEntityEmailVerificationStatus() {
+		String userId = "fwer03ecuwewvy";
+		boolean emailVerificationStatus = true;
+		
+		userRepository.updateUserEntityEmailVerificationStatus(userId, true);
+		
+		UserEntity userEntity = userRepository.getUserByUserId(userId);
 		assertNotNull(userEntity);
 		assertTrue(emailVerificationStatus == userEntity.getEmailVerificationStatus());
 	}
@@ -139,7 +178,7 @@ class UserRepositoryTest {
 		userEntity2.setLastName("Hossain2");
 		userEntity2.setEmail("shahadat.hossain2@test.com");
 		userEntity2.setEncryptedPassword("xxxx");
-		userEntity2.setEmailVerificationStatus(false);
+		userEntity2.setEmailVerificationStatus(true);
 		
 		AddressEntity addressEntity2 = new AddressEntity();
 		addressEntity2.setAddressId("psdvb39fvmvs4k");
