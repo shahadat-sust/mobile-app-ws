@@ -13,6 +13,7 @@ import org.springframework.hateoas.Resources;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,7 @@ import com.appdeveloperblog.app.ws.ui.model.response.UserRest;
 
 @RestController
 @RequestMapping("/users")
+//@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:8888" })
 public class UserController {
 
 	@Autowired
@@ -160,6 +162,7 @@ public class UserController {
 			path = "/email-verification",
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
 	)
+	//@CrossOrigin(origins = "*")
 	public OperationStatusModel verifyEmailToken(@RequestParam(name = "token") String tokenValue) {
 		OperationStatusModel returnValue = new OperationStatusModel();
 		returnValue.setOperationName(RequestOperationName.VERIFY_EMAIL.name());
