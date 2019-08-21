@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.appdeveloperblog.app.ws.exception.UserServiceException;
+import com.appdeveloperblog.app.ws.security.SecurityConstants;
 import com.appdeveloperblog.app.ws.service.AddressService;
 import com.appdeveloperblog.app.ws.service.UserService;
 import com.appdeveloperblog.app.ws.shared.dto.AddressDto;
@@ -39,6 +40,7 @@ import com.appdeveloperblog.app.ws.ui.model.response.UserRest;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/users")
@@ -126,8 +128,17 @@ public class UserController {
 		return returnValue;
 	}
 	
+	@ApiOperation(
+			value = "${userController.getUser.apiOperation.value}",
+			notes = "${userController.getUser.apiOperation.notes}"
+	)
 	@ApiImplicitParams({
-		@ApiImplicitParam(paramType = "header", name = "authorization", required = true, value = "${userController.authorizationHeader.description}")
+		@ApiImplicitParam(
+				paramType = "header", 
+				name = SecurityConstants.AUTHORIZATION_HEADER, 
+				required = true, 
+				value = "${userController.authorization.header.description}"
+		)
 	})
 	@GetMapping(
 			path = "/{userId}", 
@@ -139,8 +150,17 @@ public class UserController {
 		return returnValue;
 	}
 	
+	@ApiOperation(
+			value = "${userController.getUsers.apiOperation.value}",
+			notes = "${userController.getUsers.apiOperation.notes}"
+	)
 	@ApiImplicitParams({
-		@ApiImplicitParam(paramType = "header", name = "authorization", required = true, value = "${userController.authorizationHeader.description}")
+		@ApiImplicitParam(
+				paramType = "header", 
+				name = SecurityConstants.AUTHORIZATION_HEADER, 
+				required = true, 
+				value = "${userController.authorization.header.description}"
+		)
 	})
 	@GetMapping( 
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
@@ -157,7 +177,12 @@ public class UserController {
 	}
 
 	@ApiImplicitParams({
-		@ApiImplicitParam(paramType = "header", name = "authorization", required = true, value = "${userController.authorizationHeader.description}")
+		@ApiImplicitParam(
+				paramType = "header", 
+				name = SecurityConstants.AUTHORIZATION_HEADER, 
+				required = true, 
+				value = "${userController.authorization.header.description}"
+		)
 	})
 	@PutMapping(
 			path = "/{userId}",
@@ -172,7 +197,12 @@ public class UserController {
 	}
 	
 	@ApiImplicitParams({
-		@ApiImplicitParam(paramType = "header", name = "authorization", required = true, value = "${userController.authorizationHeader.description}")
+		@ApiImplicitParam(
+				paramType = "header", 
+				name = SecurityConstants.AUTHORIZATION_HEADER, 
+				required = true, 
+				value = "${userController.authorization.header.description}"
+		)
 	})
 	@DeleteMapping(
 			path = "/{userId}",
@@ -187,7 +217,12 @@ public class UserController {
 	}
 
 	@ApiImplicitParams({
-		@ApiImplicitParam(paramType = "header", name = "authorization", required = true, value = "${userController.authorizationHeader.description}")
+		@ApiImplicitParam(
+				paramType = "header", 
+				name = SecurityConstants.AUTHORIZATION_HEADER, 
+				required = true, 
+				value = "${userController.authorization.header.description}"
+		)
 	})
 	@GetMapping(
 			path = "/{userId}/addresses/{addressId}", 
@@ -210,7 +245,12 @@ public class UserController {
 	}
 
 	@ApiImplicitParams({
-		@ApiImplicitParam(paramType = "header", name = "authorization", required = true, value = "${userController.authorizationHeader.description}")
+		@ApiImplicitParam(
+				paramType = "header", 
+				name = SecurityConstants.AUTHORIZATION_HEADER, 
+				required = true, 
+				value = "${userController.authorization.header.description}"
+		)
 	})
 	@GetMapping(
 			path = "/{userId}/addresses", 
